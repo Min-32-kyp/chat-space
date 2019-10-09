@@ -32,21 +32,21 @@ Things you may want to cover:
 |mail|string|null: false, foreign_key: false|
 |password|string|null: false, foreign_key: false|
 
-### Association
+### Association
 - has_many :groups
 - has_many :messages
 
-## groupテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false, foreign_key: false|
 
-### Association
+### Association
 - has_many :users
 - has_many :messages
 
-## messageテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -55,17 +55,17 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
-### Association
+### Association
 - belongs_to :group
 - belongs_to :user
 
-## groups_usersテーブル
+## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-### Association
+### Association
 - belongs_to :group
 - belongs_to :user
