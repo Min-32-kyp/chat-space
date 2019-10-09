@@ -22,3 +22,16 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* DataBase (Table)
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_name|string|null: false, foreign_key: false|
+|mail|string|null: false, foreign_key: false|
+|password|string|null: false, foreign_key: false|
+
+### Association
+- has_many :groups
+- has_many :messages
