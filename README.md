@@ -28,12 +28,12 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null: false, foreign_key: false|
-|mail|string|null: false, foreign_key: false|
-|password|string|null: false, foreign_key: false|
+|name|string|null: false|
+|mail|string|null: false|
+|password|string|null: false|
 
 ### Association
-- has_many :groups
+- has_many :groups_users
 - has_many :messages
 
 ## groupsテーブル
