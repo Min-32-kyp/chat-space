@@ -1,0 +1,10 @@
+// スタイルシートは「@import」を使用し読み込む
+
+@import "font-awesome";
+@import "config/colors";
+@import "config/font-size";
+@import "config/reset";
+@import "mixins/vendor_prefix";
+@import "modules/sideSpace";
+@import "modules/chat";
+@import "messages/messages";
