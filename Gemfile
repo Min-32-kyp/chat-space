@@ -57,3 +57,6 @@ gem 'haml-rails'
 
 # アイコンの使用
 gem "font-awesome-rails"
+
+# ユーザー管理
+gem 'devise'
