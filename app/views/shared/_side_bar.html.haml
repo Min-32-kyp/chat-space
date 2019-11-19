@@ -10,18 +10,10 @@
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog', class: 'icon'
   .sideSpace__body
-    .sideSpace__body__group
-      .sideSpace__body__group__name
-        グループ名(その１)
-      .sideSpace__body__group__lastMessage
-        最後のメッセージ(おはよう)
-    .sideSpace__body__group
-      .sideSpace__body__group__name
-        グループ名(その２)
-      .sideSpace__body__group__lastMessage
-        最後のメッセージ(テスト)
-    .sideSpace__body__group
-      .sideSpace__body__group__name
-        グループ名(その３)
-      .sideSpace__body__group__lastMessage
-        最後のメッセージ(おやすみ)
+    - current_user.groups.each do |group|
+      .sideSpace__body__group
+        = link_to group_messages_path(group) do
+          .sideSpace__body__group__name
+            = group.name
+          .sideSpace__body__group__lastMessage
+            メッセージはまだありません。
