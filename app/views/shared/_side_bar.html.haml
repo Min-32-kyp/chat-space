@@ -12,8 +12,8 @@
   .sideSpace__body
     - current_user.groups.each do |group|
       .sideSpace__body__group
-        = link_to '#' do                -#グループのチャット画面へのリンクになる
+        = link_to group_messages_path(group) do
           .sideSpace__body__group__name
             = group.name
           .sideSpace__body__group__lastMessage
-            メッセージはまだありません。(仮メッセージ)
+            メッセージはまだありません。
