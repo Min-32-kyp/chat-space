@@ -60,3 +60,7 @@ gem "font-awesome-rails"
 
 # ユーザー管理
 gem 'devise'
+
+# 画像の送信機能
+gem 'carrierwave'
+gem 'mini_magick'
