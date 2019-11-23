@@ -18,34 +18,9 @@
       .right-header
         .right-header__button
           = link_to "Edit", edit_group_path(params[:group_id]), method: :get
-    .messages
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー(A)
-          .upper-message__date
-            2017/04/04
-        .lower-meesage
-          .lower-message__content
-            メッセージ(テスト)
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー(B)
-          .upper-message__date
-            2017/04/05
-        .lower-meesage
-          .lower-message__content
-            メッセージ(B)
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー(C)
-          .upper-message__date
-            2017/04/06
-        .lower-meesage
-          .lower-message__content
-            メッセージ(C)
+    
+    = render 'main_chat'
+
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :body, class: 'form__message', placeholder: 'type a message'
