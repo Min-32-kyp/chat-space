@@ -6,15 +6,12 @@
     .header
       .left-header
         .left-header__title
-          グループ名
+          = @group.name
         %ul.left-header__members
           Member：
-          %li.member
-            メンバー名(A)
-          %li.member
-            メンバー名(B)
-          %li.member
-            メンバー名(C)
+          - @members.each do |member|
+            %li.member 
+              = member.name 
       .right-header
         .right-header__button
           = link_to "Edit", edit_group_path(params[:group_id]), method: :get
