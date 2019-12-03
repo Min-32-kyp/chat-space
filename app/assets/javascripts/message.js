@@ -54,9 +54,9 @@ $(function(){
     })
 
     .done(function(data) {
-       var html = buildHTML(data);
-      $('.main-content__chat-contents').append(html)
-      $('#message_body').val('')
+      var html = buildHTML(data);
+      $('.messages').append(html);
+      
     })
     .fail(function() {
       alert('error');
