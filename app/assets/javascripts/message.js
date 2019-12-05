@@ -9,7 +9,7 @@ $(function(){
             ${message.user_name}
           </div>
           <div class="upper-message__date">
-            ${message.date}
+            ${message.created_at}
           </div>
         </div>
         <div class="lower-meesage">
@@ -24,10 +24,10 @@ $(function(){
       `<div class="message">
         <div class="upper-message">
           <div class="upper-message__user-name">
-            ${message.user_name}
+            ${message.name}
           </div>
           <div class="upper-message__date">
-            ${message.date}
+            ${message.created_at}
           </div>
         </div>
         <div class="lower-meesage">
@@ -56,10 +56,12 @@ $(function(){
     .done(function(data) {
       var html = buildHTML(data);
       $('.messages').append(html);
-      
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('form')[0].reset();
+      $('.form__submit').prop('disabled', false);
     })
     .fail(function() {
-      alert('error');
+      alert("メッセージ送信に失敗しました");
     });
   })
 });
