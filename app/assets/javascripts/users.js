@@ -1,4 +1,5 @@
 $(function() {
+  // インクリメンタルサーチの結果(ユーザーが複数見つかった場合)
   function addUser(user) {
     let html = `
       <div class="chat-group-user clearfix">
@@ -9,6 +10,7 @@ $(function() {
     $("#user-search-result").append(html);
   }
 
+  // インクリメンタルサーチにてユーザーが見つからなかった場合
   function addNoUser() {
     let html = `
       <div class="chat-group-user clearfix">
@@ -17,6 +19,23 @@ $(function() {
     `;
     $("#user-search-result").append(html);
   }
+
+  // インクリメンタルサーチの結果から、選択したユーザーを表示しないようにする
+  function addDeleteUser(name, id) {
+    let html = `
+    <div class="chat-group-user clearfix" id="${id}">
+      <p class="chat-group-user__name">${name}</p>
+      <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+    </div>`;
+    $(".js-add-user").append(html);
+  }
+  // 追加を押されたユーザーをメンバーに表示する
+  function addMember(userId) {
+    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    $(`#${userId}`).append(html);
+  }
+
+  // メンバーを追加のところで文字が入力される度に検索をかける
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
     $.ajax({
@@ -41,5 +60,21 @@ $(function() {
       .fail(function() {
         alert("通信エラーです。ユーザーが表示できません。");
       });
+  });
+
+  // ユーザー一覧にて「追加」が押された時
+  $(document).on("click", ".chat-group-user__btn--add", function() {
+    const userName = $(this).attr("data-user-name");
+    const userId = $(this).attr("data-user-id");
+    $(this)
+      .parent()
+      .remove();
+    addDeleteUser(userName, userId);
+    addMember(userId);
+  });
+  $(document).on("click", ".chat-group-user__btn--remove", function() {
+    $(this)
+      .parent()
+      .remove();
   });
 });
