@@ -74,3 +74,7 @@ gem 'mini_magick'
 # 非同期通信
 gem 'jquery-rails'
 
+# アプリケーションサーバ Unicornの導入
+group :production do
+  gem 'unicorn', '5.4.1'
+end
