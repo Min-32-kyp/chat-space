@@ -87,3 +87,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+
+# 画像アップロードの際、外部ストレージに保存されるのを補助する
+gem 'fog-aws'
