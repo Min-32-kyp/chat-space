@@ -17,7 +17,7 @@ $(function(){
             ${message.body}
           </p>
         </div>
-        <asset_path src=${message.image} >
+        <img class="lower-message__image" src="${message.image}" >
       </div>`
     } else {
       var html = //メッセージに画像が含まれない場合のHTMLを作る
